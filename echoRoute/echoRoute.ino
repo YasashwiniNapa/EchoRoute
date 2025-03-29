@@ -18,11 +18,18 @@ bool LEFT = 0;
 bool RIGHT = 1;
 
 void setup() {
-pinMode(buzzer,OUTPUT); // sets pin as output
+  pinMode(buzzer,OUTPUT); // sets pin as output
+  Serial.begin(115200);
+  Serial.setTimeout(1);
 }
 
 // the loop function runs over and over again forever
 void loop() {
+    if (Serial.available() > 0) {
+      String message = Serial.readStringUntil('\n');
+      Serial.print("Received: ");
+      Serial.println(message);
+    }
     if (FORWARD){
       analogWrite(forward, bright);
     }
