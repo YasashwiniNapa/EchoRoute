@@ -1,4 +1,4 @@
-# Here is the physical setup for our device
+# Hardware Specs & Setup
 
 ## Components
 - Arduino Mega 2560
@@ -7,9 +7,9 @@
 - Buzzer
 
 
-### 
-Power: 5V
-Green: pin 2
-Blue: pin 3
-Yellow: pin 4
-Red: pin 5
+### Pinout
+- Power: 5V
+- Green: pin 2
+- Blue: pin 3
+- Yellow: pin 4
+- Red: pin 5
