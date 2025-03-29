@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directions Finder</title>
+</head>
+<body>
+    <h1>Enter Addresses to Get Directions</h1>
+    <form method="POST">
+        <label for="start_address">Start Address:</label>
+        <input type="text" id="start_address" name="start_address" required><br><br>
+        
+        <label for="stop_address">Stop Address:</label>
+        <input type="text" id="stop_address" name="stop_address" required><br><br>
+        
+        <button type="submit">Get Directions</button>
+    </form>
+
+    {% if steps %}
+        <h2>Directions from {{ start }} to {{ stop }}:</h2>
+        <ol>
+            {% for step in steps %}
+                <li>{{ step }}</li>
+            {% endfor %}
+        </ol>
+    {% elif error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
