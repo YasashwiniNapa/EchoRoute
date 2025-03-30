@@ -1,16 +1,16 @@
 from flask import Flask, render_template, request
 import requests
-import serial 
-import time
+# import serial 
+# import time
 
-PORT = 'COM5'
-arduino = serial.Serial(port=PORT, baudrate=115200)
-try:
-    arduino.close()
-except Exception as e:
-    print(e)
+# # PORT = 'COM5'
+# # arduino = serial.Serial(port=PORT, baudrate=115200)
+# try:
+#     arduino.close()
+# except Exception as e:
+#     print(e)
 
-arduino = serial.Serial(port=PORT, baudrate=115200)
+# arduino = serial.Serial(port=PORT, baudrate=115200)
 
 app = Flask(__name__)
 
@@ -47,13 +47,13 @@ def get_directions(start, stop):
             street_name = f"on {step['name']}"
 
         # Print the instruction with street name and distance
-        arduino.write((f"{instruction} {street_name}\t{distance_km:.1f}km").encode())
-        time.sleep(1)
-        if arduino.in_waiting > 0:
-            response = arduino.readline().decode().strip()
-            print(f"Received: {response}")
-        else:
-            print("No response received.")
+        # arduino.write((f"{instruction} {street_name}\t{distance_km:.1f}km").encode())
+        # time.sleep(1)
+        # if arduino.in_waiting > 0:
+        #     response = arduino.readline().decode().strip()
+        #     print(f"Received: {response}")
+        # else:
+        #     print("No response received.")
         
         dir.append(f"{instruction} {street_name}\t{distance_km:.1f}km")
 
