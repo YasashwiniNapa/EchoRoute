@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import whisper
 import os
 import re
-from osmap import get_place_id, get_directions  # Import functions from osmap.py
+from osmap import get_place_id, get_directions  
 
 app = Flask(__name__)
 
